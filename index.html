@@ -24,19 +24,33 @@
             <h2>
                Plan Your Meal
             </h2>
+            <div class="ingredients-box">
 <form id="ingredients">
-    <label> Protein
-    <input type="text" name="protein" id="protein-in" />
+    <label> Ingredient
+    <input type="text" name="ingredients" id="ingredients-in" />
     </label>
-    <label>Veggies
-        <input type="text" name="veggies" id="veggies-in" />
+    <label>Quantity
+        <input type="number" name="quantity" id="quantity-in" />
     </label>
-    <label>Veggies
-        <input type="text" name="oils" id="oils-in" />
+    <label>Calories
+        <input type="number" name="calories" id="calories-in" />
     </label>
     <button id="add-ingredient">Add Ingredient</button>
 </form>
+<div class="ingredients-list">
+    <ul id="ingredients-list"></ul>
+    <button id="remove">Remove Last Item</button>
+</div>
+</div>
 
+<div class="save-box">
+    <input type="text" name="save" id="save-in" />
+<button id="save-meal">Save Meal</button>
+</div>
+
+<div class="Meals">
+    <ul id="meals-list"></ul>Meals
+</div>
         </section>
     </main>
     <footer>
