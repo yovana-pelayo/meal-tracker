@@ -21,35 +21,28 @@
     <main>
         <section class="main-section">
     
-            <h2>
-               Plan Your Meal
-            </h2>
-            <div class="ingredients-box">
-<form id="ingredients">
-    <label> Ingredient
-    <input type="text" name="ingredients" id="ingredients-in" />
+<div class="ingredients-box">
+<form id="add-ingredients">
+    <label> Ingredient:
+    <input type="text" name="ingredients" id="ingredients" />
     </label>
-    <label>Quantity
-        <input type="number" name="quantity" id="quantity-in" />
+    <label>Quantity:
+        <input type="number" name="quantity" id="quantity" />
     </label>
-    <label>Calories
-        <input type="number" name="calories" id="calories-in" />
-    </label>
-    <button id="add-ingredient">Add Ingredient</button>
+    <button type="submit">Add Ingredient</button>
 </form>
-<div class="ingredients-list">
-    <ul id="ingredients-list"></ul>
+<div class="stats-list">
+    <ul id="stats-list"></ul>
     <button id="remove">Remove Last Item</button>
 </div>
 </div>
 
-<div class="save-box">
-    <input type="text" name="save" id="save-in" />
 <button id="save-meal">Save Meal</button>
-</div>
+</section>
 
-<div class="Meals">
-    <ul id="meals-list"></ul>Meals
+<section>
+    <h2>Meals</h2>
+    <ul id="meals-list"></ul>
 </div>
         </section>
     </main>
