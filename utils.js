@@ -6,6 +6,6 @@ export function renderStat(stat) {
 }
 export function renderMeal(meal) {
     const li = document.createElement('li');
-    li.textContent = `${meal.ingredients} (${meal.totalQuantity})`;
+    li.textContent = `Meal #${meal.ingredients} - ${meal.totalQuantity} Ingredients used`;
     return li;
 }

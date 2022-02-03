@@ -5,8 +5,8 @@ const formEl = document.getElementById('add-ingredients');
 // const quantityIn = document.getElementById('quantity-in');
 // const caloriesIn = document.getElementById('calories-in');
 const statsList = document.getElementById('stats-list');
-// const removeBtn = document.getElementById('remove');
-// const saveBtn = document.getElementById('save-meal');
+const removeBtn = document.getElementById('remove');
+const saveBtn = document.getElementById('save-meal');
 const mealList = document.getElementById('meals-list');
 // let state: what are we keeping track of?
 let meals = [];
@@ -34,27 +34,32 @@ function resetStats() {
     statsList.textContent = '';
 }
 // const ingredientsEl = document.querySelector('#ingredients-form');
-formEl.addEventListener('click', (e) => {
+formEl.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const mealData = new FormData(formEl);
 
-    const stat =
-{
-    ingredients: mealData.get('ingredients'),
-    quantity: mealData.get('quantity'),
-};
+    const stat = {
+        ingredients: mealData.get('ingredients'),
+        quantity: mealData.get('quantity'),
+    };
     stats.push(stat);
     renderStats();
 });
-removeEventListener.addEventListener('click', () => {
+removeBtn.addEventListener('click', () => { 
+
+    stats.pop();
+    renderStats();
+
+});
+saveBtn.addEventListener('click', () => {
 
     let sumQuantity = 0;
     for (let stat of stats) {
         const numStats = Number(stat.quantity);
         sumQuantity = numStats + sumQuantity; 
     }
-    const stat = {
+    const meal = {
         number: meals.length + 1, 
         totalQuantity: sumQuantity,
     };
@@ -65,6 +70,7 @@ removeEventListener.addEventListener('click', () => {
     resetStats();
 
 });
+
   // get user input
   // use user input to update state 
   // update DOM to reflect the new state
