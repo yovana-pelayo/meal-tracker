@@ -1,12 +1,12 @@
 import { renderMeal, renderIngredient } from './utils.js';
 // import functions and grab DOM elements
-// const quantityIn = document.getElementById('quantity-in');
+const mealName = document.getElementById('meal-name');
 // const caloriesIn = document.getElementById('calories-in');
 const ingredientsList = document.getElementById('ingredients-list');
 const removeBtn = document.getElementById('remove');
 const saveBtn = document.getElementById('save-meal');
 const mealList = document.getElementById('meals-list');
-// let state: what are we keeping track of?
+// let state: what are we keeping track of
 let meals = [];
 let ingredients = [];
 // set event listeners 
@@ -54,24 +54,21 @@ removeBtn.addEventListener('click', () => {
     renderIngredients();
 
 });
-// saveBtn.addEventListener('click', () => {
+saveBtn.addEventListener('click', () => {
 
+    const numOfIn = ingredients.length;
+    const newMeal = mealName.value;
+console.log(numOfIn, newMeal);
+    const meal = {
+        name: numOfIn.get
+    };
 
-//     for (let ingredient of ingredients) {
-//         const numOfI = Number(ingredient.ingredients);
-//         mealName = numOfI + mealName;
-//     }
-//     const meal = {
-//         number: meals.length + 1, 
-//         quantity: mealName,
-//     };
+    meals.push(numMeals);
 
-//     meals.push(meal);
+    renderMeals();
+    resetIngredients();
 
-//     renderMeals();
-//     resetIngredients();
-
-// });
+});
 
   // get user input
   // use user input to update state 
