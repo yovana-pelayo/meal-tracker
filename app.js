@@ -42,15 +42,15 @@ formEl.addEventListener('submit', (e) => {
         name: formData.get('ingredients'),
         quantity: formData.get('quantity'),
     }; 
-
-    ingredients.push(mealItems);
+//created a mealsItem object that get sits date from these inputs
+    ingredients.push(mealItems); 
     renderIngredients();
 
  
 });
 removeBtn.addEventListener('click', () => { 
 
-    ingredients.pop();
+    ingredients.pop(); //removes last input
     renderIngredients();
 
 });
@@ -58,18 +58,16 @@ saveBtn.addEventListener('click', () => {
 
     const numOfIn = ingredients.length;
     const newMeal = mealName.value;
-console.log(numOfIn, newMeal);
     const meal = {
-        name: numOfIn.get
+        name: newMeal,
+        totalIngredients: numOfIn,
     };
-
-    meals.push(numMeals);
+// if I am honest IDK what I did! Mary told me to write the test first and then to code in small sections. 
+ //I think the new object is the meal and I am pushing that to meal list
+    meals.push(meal);
 
     renderMeals();
     resetIngredients();
 
 });
 
-  // get user input
-  // use user input to update state 
-  // update DOM to reflect the new state
