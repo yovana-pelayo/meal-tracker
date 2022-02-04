@@ -1,16 +1,14 @@
-import { renderMeal, renderStat } from './utils.js';
+import { renderMeal, renderIngredient } from './utils.js';
 // import functions and grab DOM elements
-const formEl = document.getElementById('add-ingredients');
-// const ingredientsIn = document.getElementById('ingredients-in');
 // const quantityIn = document.getElementById('quantity-in');
 // const caloriesIn = document.getElementById('calories-in');
-const statsList = document.getElementById('stats-list');
+const ingredientsList = document.getElementById('ingredients-list');
 const removeBtn = document.getElementById('remove');
 const saveBtn = document.getElementById('save-meal');
 const mealList = document.getElementById('meals-list');
 // let state: what are we keeping track of?
 let meals = [];
-let stats = [];
+let ingredients = [];
 // set event listeners 
 
 
@@ -21,55 +19,59 @@ function renderMeals(){
         mealList.append(li);
     }
 }
-function renderStats() {
-    statsList.textContent = '';
-    for (let stat of stats) {
-        const li = renderStat(stat);
-        statsList.appendChild(li);
+function renderIngredients() {
+    ingredientsList.textContent = '';
+    for (let item of ingredients) {
+        const li = renderIngredient(item);
+        ingredientsList.append(li);
     }
 }
 
-function resetStats() {
-    stats = [];
-    statsList.textContent = '';
+function resetIngredients() {
+    ingredients = 0;
+    ingredientsList.textContent = '';
 }
-// const ingredientsEl = document.querySelector('#ingredients-form');
+const formEl = document.querySelector('#add-ingredients');
+
 formEl.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const mealData = new FormData(formEl);
+    const formData = new FormData(formEl);
 
-    const stat = {
-        ingredients: mealData.get('ingredients'),
-        quantity: mealData.get('quantity'),
-    };
-    stats.push(stat);
-    renderStats();
+    const mealItems = {
+        name: formData.get('ingredients'),
+        quantity: formData.get('quantity'),
+    }; 
+
+    ingredients.push(mealItems);
+    renderIngredients();
+
+ 
 });
 removeBtn.addEventListener('click', () => { 
 
-    stats.pop();
-    renderStats();
+    ingredients.pop();
+    renderIngredients();
 
 });
-saveBtn.addEventListener('click', () => {
+// saveBtn.addEventListener('click', () => {
 
-    let sumQuantity = 0;
-    for (let stat of stats) {
-        const numStats = Number(stat.quantity);
-        sumQuantity = numStats + sumQuantity; 
-    }
-    const meal = {
-        number: meals.length + 1, 
-        totalQuantity: sumQuantity,
-    };
 
-    meals.push(meal);
+//     for (let ingredient of ingredients) {
+//         const numOfI = Number(ingredient.ingredients);
+//         mealName = numOfI + mealName;
+//     }
+//     const meal = {
+//         number: meals.length + 1, 
+//         quantity: mealName,
+//     };
 
-    renderMeals();
-    resetStats();
+//     meals.push(meal);
 
-});
+//     renderMeals();
+//     resetIngredients();
+
+// });
 
   // get user input
   // use user input to update state 

@@ -1,11 +1,11 @@
-export function renderStat(stat) {
+export function renderIngredient(item) {
     const li = document.createElement('li');
-    li.textContent = `${stat.ingredients} (${stat.quantity})`;
+    li.textContent = `${item.name} ${item.quantity}`;
     return li;
     
 }
 export function renderMeal(meal) {
     const li = document.createElement('li');
-    li.textContent = `Meal #${meal.ingredients} - ${meal.totalQuantity} Ingredients used`;
+    li.textContent = `Name ${meal.quantity}  ${meal.ingredients} ingredients`;
     return li;
 }
